@@ -1,0 +1,82 @@
+<div class="container my-5" style="max-width: 500px;">
+  <div *ngIf="!cadastroSucesso" class="card p-4 shadow-sm border">
+    <h3 class="text-primary fw-bold mb-4 text-center">Cadastro de Cliente</h3>
+
+    <form (ngSubmit)="finalizarCadastro()">
+      <div class="mb-3">
+        <label class="form-label fw-bold">Nome Completo:</label>
+        <input 
+          type="text" 
+          name="txtNome" 
+          class="form-control" 
+          placeholder="Digite seu nome"
+          [(ngModel)]="obj['nome']" 
+          required
+        >
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label fw-bold">E-mail:</label>
+        <input 
+          type="email" 
+          name="txtEmail" 
+          class="form-control" 
+          placeholder="Digite seu e-mail"
+          [(ngModel)]="obj['email']" 
+          required
+        >
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label fw-bold">CPF:</label>
+        <input 
+          type="text" 
+          name="txtCpf" 
+          class="form-control" 
+          placeholder="Digite seu CPF"
+          [(ngModel)]="obj['cpf']" 
+          required
+        >
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label fw-bold">Senha:</label>
+        <input 
+          type="password" 
+          name="txtSenha" 
+          class="form-control" 
+          placeholder="Digite sua senha"
+          [(ngModel)]="obj['senha']" 
+          required
+        >
+      </div>
+
+      <button type="submit" class="btn btn-success w-100 fw-bold py-2 mb-3">
+        Finalizar Cadastro
+      </button>
+
+      <div class="text-center">
+        <a routerLink="/login" class="btn btn-link text-secondary text-decoration-none small">
+          Já tem conta? Voltar para o Login
+        </a>
+      </div>
+    </form>
+  </div>
+
+  <div 
+    *ngIf="cadastroSucesso" 
+    class="position-fixed top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center" 
+    style="background-color: rgba(0, 0, 0, 0.7); z-index: 9999;"
+  >
+    <div class="bg-white p-4 rounded text-center shadow-lg" style="max-width: 400px; width: 90%;">
+      <div class="text-success mb-2" style="font-size: 3.5rem;">✓</div>
+      <h4 class="fw-bold text-success mb-2">Cadastro Realizado!</h4>
+      <p class="text-secondary mb-4">
+        Seu cadastro foi concluído com sucesso.
+      </p>
+      <button type="button" class="btn btn-success w-100 fw-bold p-2" (click)="fecharEIrParaLogin()">
+        Ir para o Login
+      </button>
+    </div>
+  </div>
+</div>

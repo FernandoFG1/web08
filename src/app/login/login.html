@@ -1,0 +1,47 @@
+<h3 class="text-danger fw-bold mb-3">Faça seu login</h3>
+<div class="row">
+  <div class="col-md-6 mb-3"> 
+    <label class="form-label fw-bold">Email:</label>
+    <input 
+      type="email" 
+      class="form-control" 
+      [(ngModel)]="emailLogin"
+      placeholder="Digite seu e-mail"
+    >
+    <label class="form-label fw-bold mt-2">Senha:</label>
+    <input 
+      type="password" 
+      class="form-control" 
+      [(ngModel)]="senhaLogin"
+      placeholder="Digite sua senha"
+    ><br>
+    <button 
+      type="button" 
+      (click)="fazerLogin()" 
+      class="btn btn-outline-success w-100 fw-bold"
+    >
+      Entrar
+    </button>
+  </div>
+  <div class="col-md-6 mb-3">
+    <span>Caso tenha esquecido sua senha:</span><br>
+    <a routerLink="/reenvio" class="btn btn-outline-warning w-100 mt-2 fw-bold">Reenviar Senha</a>
+    <br><br>
+    <span>Ainda não tem cadastro?</span><br>
+    <a routerLink="/cadastro" class="btn btn-outline-primary w-100 mt-2 fw-bold">Novo Cadastro</a>
+  </div>
+</div>
+<div 
+  *ngIf="loginSucesso" 
+  class="position-fixed top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center" 
+  style="background-color: rgba(0, 0, 0, 0.7); z-index: 9999;"
+>
+  <div class="bg-white p-4 rounded text-center shadow-lg" style="max-width: 400px; width: 90%;">
+    <div class="text-success mb-2" style="font-size: 3.5rem;">✓</div>
+    <h4 class="fw-bold text-success mb-2">Bem-vindo à MetalHorse!</h4>
+    <p class="text-secondary mb-4">
+      Login realizado com sucesso!
+    </p>
+    <button type="button" class="btn btn-success w-100 fw-bold p-2" (click)="fecharEIrParaVitrine()">OK</button>
+  </div>
+</div>

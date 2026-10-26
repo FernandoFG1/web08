@@ -1,0 +1,96 @@
+
+h1 {
+  text-align: center;
+  color: #000000;
+  font-family: Arial, sans-serif;
+}
+
+form {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #000000;
+}
+
+input, select, textarea {
+  padding: 8px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+
+.janela {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.centro {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.botao {
+  background-color: #7c7c7c;
+  color: white;
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#obs {
+  width: 100%;
+  box-sizing: border-box;
+  resize: vertical;
+}
+
+#btn1:hover {
+  background-color: #800000;
+}
+#unidade {
+  width: 100%;
+  margin-bottom: 15px;
+}
+.paisagem {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.retrato {
+  display: none;
+}
+@media (max-width: 600px) {
+  .janela {
+    padding: 15px;
+    width: 95%;
+    box-sizing: border-box;
+  }
+  .paisagem {
+    display: none;
+  }
+  .retrato {
+    display: block;
+    margin: 10px 0;
+  }
+  #tipo {
+    width: 100%;
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  input[type="date"],
+  input[type="time"],
+  input[type="password"],
+  input[type="tel"] {
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+  }
+}

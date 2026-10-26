@@ -1,0 +1,46 @@
+<div class="container my-5" style="max-width: 450px;">
+  <h3 class="text-danger fw-bold mb-4">Reenvio de Senha</h3>
+  <div class="card p-4 shadow-sm border">
+    <p class="text-secondary small mb-3">
+      Informe o seu e-mail abaixo para receber as instruções de recuperação de senha.
+    </p>
+    <div class="mb-3">
+      <label class="form-label fw-bold">E-MAIL:</label>
+      <input 
+        type="email" 
+        class="form-control" 
+        placeholder="Digite seu e-mail" 
+        [(ngModel)]="email"
+        (keyup.enter)="enviarEmail()"
+      >
+    </div>
+    <button 
+      type="button" 
+      class="btn btn-outline-success w-100 fw-bold py-2 mb-3" 
+      [disabled]="!email.trim()"
+      (click)="enviarEmail()"
+    >
+      OK / ENVIAR
+    </button>
+    <div class="text-center">
+      <a routerLink="/login" class="btn btn-link text-secondary text-decoration-none small">
+        Voltar para o Login
+      </a>
+    </div>
+  </div>
+</div>
+<div 
+  *ngIf="mensagemEnviada" 
+  class="position-fixed top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center" 
+  style="background-color: rgba(0, 0, 0, 0.7); z-index: 9999;"
+>
+  <div class="bg-white p-4 rounded text-center shadow-lg" style="max-width: 400px; width: 90%;">
+    <div class="text-success mb-2" style="font-size: 3.5rem;">✓</div>
+    <h4 class="fw-bold text-success mb-2">E-mail Enviado!</h4>
+    <p class="text-secondary mb-4">
+      A recuperação de senha foi enviada para o e-mail:<br>
+      <strong class="text-dark">{{ email }}</strong>
+    </p>
+    <button type="button" class="btn btn-success w-100 fw-bold p-2" (click)="fecharEIrParaLogin()">OK</button>
+  </div>
+</div>

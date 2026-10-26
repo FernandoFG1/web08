@@ -1,0 +1,77 @@
+<h3 class="text-danger fw-bold mb-4">Cesta de Compras</h3>
+<div class="row" *ngIf="cesta.length > 0; else cestaVazia">
+  <div class="col-md-8">
+    <div class="card mb-3 p-3" *ngFor="let obj of cesta; let i = index">
+      <div class="row align-items-center">
+        <div class="col-md-3 col-4">
+          <img src="assets/{{obj.codigo}}.jpg" [alt]="obj.nome" class="img-fluid rounded" style="max-height: 100px; object-fit: contain;">
+        </div>
+        <div class="col-md-5 col-8">
+          <h5 class="fs-6 text-primary mb-1">{{obj.nome}}</h5>
+          <p class="small text-muted mb-2">{{obj.descritivo}}</p>
+          <span class="fw-bold text-success">
+            R$ {{ (obj.valorPromo > 0 ? obj.valorPromo : obj.valor) | number:'1.2-2' }}
+          </span>
+        </div>
+        <div class="col-md-4 col-12 text-md-end mt-3 mt-md-0">
+          <div class="d-flex align-items-center justify-content-md-end gap-2 mb-2">
+            <button class="btn btn-sm btn-outline-secondary" (click)="alterarQuantidade(i, -1)">-</button>
+            <span class="fw-bold px-2">{{obj.quantidade}}</span>
+            <button class="btn btn-sm btn-outline-secondary" (click)="alterarQuantidade(i, 1)">+</button>
+          </div>
+
+          <div class="fw-bold fs-6 text-dark">
+            R$ {{ ((obj.valorPromo > 0 ? obj.valorPromo : obj.valor) * obj.quantidade) | number:'1.2-2' }}
+          </div>
+
+          <button class="btn btn-link btn-sm text-danger p-0 mt-1" (click)="removerItem(i)">remover</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card p-3 shadow-sm">
+      <h5 class="text-primary border-bottom pb-2 mb-3">Resumo</h5>
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <span>Total:</span>
+        <span class="fw-bold fs-5 text-dark">R$ {{ total | number:'1.2-2' }}</span>
+      </div>
+      <div class="d-grid gap-2">
+        <button class="btn btn-outline-success fw-bold" (click)="fecharPedido()">Fechar Pedido</button>
+        <button class="btn btn-outline-danger fw-bold" (click)="limparCesta()">Limpar Cesta</button>
+        <a routerLink="/vitrine" class="btn btn-outline-primary fw-bold">Continuar Comprando</a>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #cestaVazia>
+  <div class="alert alert-info text-center my-4">
+    A sua cesta está vazia. <a routerLink="/vitrine" class="alert-link">Clique aqui</a> para ver os produtos.
+  </div>
+</ng-template>
+<div 
+  *ngIf="pedidoFinalizado" 
+  class="position-fixed top-0 start-0 w-100 h-100 d-flex align-items-center justify-content-center" 
+  style="background-color: rgba(0, 0, 0, 0.7); z-index: 9999;"
+>
+  <div class="bg-white p-4 rounded text-center shadow-lg" style="max-width: 420px; width: 90%;">
+    <h4 class="fw-bold text-success mb-2">Pedido Realizado!</h4>
+    <p class="text-secondary small mb-3">
+      Utilize o QR Code abaixo para efetuar o pagamento via Pix:
+    </p>
+    <div class="my-3">
+      <img 
+  src="/assets/qrcode.png" 
+  alt="QR Code Pagamento Pix" 
+  class="img-fluid rounded border p-2"
+  style="max-width: 220px;"
+>
+    </div>
+    <div class="fw-bold fs-5 text-dark mb-3">
+      Total a pagar: R$ {{ total | number:'1.2-2' }}
+    </div>
+    <button type="button" class="btn btn-success w-100 fw-bold p-2" (click)="concluirEPagar()">
+      CONCLUIR E VOLTAR À PAGINA INICIAL
+    </button>
+  </div>
+</div>
