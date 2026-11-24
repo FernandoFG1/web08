@@ -1,0 +1,55 @@
+<header class="header-mh text-white">
+  <div class="top-bar">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center py-2">
+      <span class="welcome-text">
+        Bem-vindo à <strong>MetalHorse</strong> — Alta Performance &amp; Preparação Automotiva
+      </span>
+
+      <div *ngIf="nomeUsuario; else visitanteTpl" class="user-badge">
+        <span class="status-dot"></span>
+        <span>Olá, <strong>{{ nomeUsuario }}</strong></span>
+        <button type="button" class="btn-sair" (click)="sair()">Sair</button>
+      </div>
+
+      <ng-template #visitanteTpl>
+        <div class="user-badge">
+          <span>Olá, Visitante</span>
+          <a routerLink="/login" class="link-entrar">Entrar</a>
+          <span class="text-secondary">|</span>
+          <a routerLink="/cadastro" class="link-entrar">Cadastrar</a>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+
+  <div class="container py-4">
+    <div class="row align-items-center gy-3">
+      <div class="col-lg-3 col-md-4 col-12 text-center text-md-start">
+        <a routerLink="/vitrine" class="logo-box d-inline-block">
+          <img src="logotipo.jpg" alt="MetalHorse Performance" class="img-fluid logo-img">
+        </a>
+      </div>
+
+      <div class="col-lg-5 col-md-8 col-12">
+        <app-barra-busca></app-barra-busca>
+
+        <nav class="d-flex flex-wrap gap-2 mt-3 justify-content-center justify-content-md-start">
+          <a routerLink="/vitrine" routerLinkActive="ativo" class="btn btn-mh">Inicio</a>
+          <a routerLink="/promo" routerLinkActive="ativo" class="btn btn-mh">Promoções</a>
+          <a routerLink="/cesta" routerLinkActive="ativo" class="btn btn-mh">Carrinho</a>
+          <a routerLink="/pedido" routerLinkActive="ativo" class="btn btn-mh">Pedidos</a>
+        </nav>
+      </div>
+
+      <div class="col-lg-4 col-12 text-lg-end text-center contact-box">
+        <div><span class="contact-label">Televendas:</span> (11) 99482-7700</div>
+        <div class="email-line"><span class="contact-label">E-mail:</span> contato@metalhorse.com.br</div>
+        <div><span class="contact-label">Loja Física:</span> Av. dos Autódromos, 1420 - Interlagos, SP</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container my-4">
+  <router-outlet></router-outlet>
+</main>

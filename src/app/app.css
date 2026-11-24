@@ -1,0 +1,12 @@
+img {
+  max-width: 100%;
+  height: auto;
+  max-height:200px;
+}
+.lado-direito {
+  text-align: right;           
+}
+
+.lado-direito p {
+  margin: 0px 0;                
+}

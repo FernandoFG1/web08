@@ -1,0 +1,12 @@
+<div class="input-group" style="max-width: 400px;">
+  <input
+    name="termoBusca"
+    type="text"
+    class="form-control"
+    placeholder="Buscar..."
+    [(ngModel)]="termoBusca"
+    (ngModelChange)="salvarNoStorage()"
+    (keyup.enter)="buscar()"
+  >
+  <button class="btn btn-light border" type="button" (click)="buscar()">ok</button>
+</div>

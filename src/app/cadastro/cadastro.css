@@ -1,0 +1,110 @@
+.cadastro-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cadastro-card {
+  width: 100%;
+  max-width: 460px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #d4d4d8;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.cadastro-header {
+  background: linear-gradient(180deg, #09090b 0%, #17171c 100%);
+  border-bottom: 4px solid #dc2626;
+  padding: 20px 24px;
+}
+
+.text-light-muted {
+  color: #a1a1aa;
+}
+
+.form-label-mh {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #18181b;
+  margin-bottom: 6px;
+}
+
+.input-mh {
+  border: 1.5px solid #d4d4d8;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  color: #18181b;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-mh:focus {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15);
+  outline: none;
+}
+
+.btn-mh-submit {
+  background-color: #dc2626;
+  border: 1px solid #b91c1c;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.98rem;
+  padding: 11px 16px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn-mh-submit:hover {
+  background-color: #b91c1c;
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.35);
+}
+
+.login-link {
+  color: #dc2626;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.login-link:hover {
+  color: #991b1b;
+  text-decoration: underline;
+}
+
+.modal-backdrop-mh {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(9, 9, 11, 0.72);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  z-index: 1050;
+}
+
+.modal-card-mh {
+  width: 100%;
+  max-width: 400px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  border-top: 4px solid #dc2626;
+  padding: 28px 24px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+.check-circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: rgba(220, 38, 38, 0.12);
+  color: #dc2626;
+  font-size: 1.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

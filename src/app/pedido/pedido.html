@@ -1,0 +1,29 @@
+<div class="container my-4" style="max-width: 500px;">
+  <h3 class="text-danger fw-bold mb-3">Consultar Pedido</h3>
+
+  <div class="alert alert-info" *ngIf="mensagem">{{mensagem}}</div>
+
+  <div class="card p-4 shadow-sm">
+    <div class="mb-3">
+      <label class="form-label fw-bold">Código do Pedido:</label>
+      <div class="input-group">
+        <input type="number" class="form-control" [(ngModel)]="codigoBusca" placeholder="Ex: 1">
+        <button class="btn btn-primary" (click)="buscar()">Buscar</button>
+      </div>
+    </div>
+
+    <div *ngIf="obj.codigoPedido > 0" class="border-top pt-3 mt-3">
+      <p class="fw-bold mb-1">Pedido #{{ obj.codigoPedido }}</p>
+      <p class="mb-1"><strong>Data:</strong> {{ obj.dataPedido }}</p>
+      <p class="mb-1"><strong>Valor Total:</strong> R$ {{ obj.valorTotal | number:'1.2-2' }}</p>
+      <div class="mb-3">
+        <label class="form-label small fw-bold">Observação:</label>
+        <input type="text" class="form-control form-control-sm" [(ngModel)]="obj.obs">
+      </div>
+      <div class="d-flex gap-2">
+        <button class="btn btn-warning w-50" (click)="alterar()">Atualizar</button>
+        <button class="btn btn-danger w-50" (click)="excluir()">Excluir Pedido</button>
+      </div>
+    </div>
+  </div>
+</div>
